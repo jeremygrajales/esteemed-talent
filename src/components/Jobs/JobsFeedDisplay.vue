@@ -16,12 +16,16 @@
 
 <script>
 import JobsCard from './JobsCard'
-import { stateMixin } from '@/mixins/stateMixin'
+import { getState } from '@/use/getState'
+// import { stateMixin } from '@/mixins/stateMixin'
 
 export default {
   name: 'JobsFeedDisplay',
   components: { JobsCard },
-  mixins: [stateMixin],
+  // mixins: [stateMixin],
+  setup(_, { root }) {
+    return getState(root)
+  },
   created() {
     document.title = 'Esteemed - Careers'
   }
