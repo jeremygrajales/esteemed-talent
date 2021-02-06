@@ -21,11 +21,11 @@ export default {
     ...mapState({ user: state => state.auth.user })
   },
   methods: {
-    ...mapActions(['loadContent', 'fetchUser'])
+    ...mapActions(['loadContent', 'auth/fetchUser'])
   },
   async created() {
     if (!this.user) {
-      await this.fetchUser()
+      await this['auth/fetchUser']()
     }
     await this.loadContent()
   },
